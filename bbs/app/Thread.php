@@ -8,5 +8,7 @@ class Thread extends Model
 {
     protected $table = 'threads';
 
-    return $this->hasMany('App\Comment'); // 1スレッドに複数のコメントが付く
+    public function comments(){
+        return $this->hasMany('App\Comment', 'thread_id');
+    }
 }
