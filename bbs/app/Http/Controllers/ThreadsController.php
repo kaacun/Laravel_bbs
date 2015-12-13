@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Http\Requests\Thread\StoreRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Thread;
@@ -36,10 +35,10 @@ class ThreadsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  StoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $data = [
              'title' => $request->get('title'),
@@ -48,8 +47,7 @@ class ThreadsController extends Controller
          ];
          $this->threads->create($data);
 
-         return redirect()->back()
-             ->with('message', '投稿が完了しました。');
+         return redirect('bbs');
     }
 
     /**
