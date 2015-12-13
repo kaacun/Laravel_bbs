@@ -19,10 +19,8 @@ class ThreadsController extends Controller
 
     public function index()
     {
-      // $threads = Thread::all;
-      $threads = $this->threads->all();
-
-      return view('bbs.index')->with('threads', $threads);
+        $threads = $this->threads->all();
+        return view('bbs.index')->with('threads', $threads);
     }
 
     /**
@@ -32,7 +30,7 @@ class ThreadsController extends Controller
      */
     public function create()
     {
-        //
+        return view('bbs.create');
     }
 
     /**
@@ -43,7 +41,15 @@ class ThreadsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+             'title' => $request->get('title'),
+             'description' => $request->get('description'),
+             'user' => $request->get('user')
+         ];
+         $this->threads->create($data);
+
+         return redirect()->back()
+             ->with('message', '投稿が完了しました。');
     }
 
     /**
@@ -54,7 +60,8 @@ class ThreadsController extends Controller
      */
     public function show($id)
     {
-        //
+        $thread = Thread::findOrFail($id);
+        return view('bbs.show', compact('thread'));
     }
 
     /**

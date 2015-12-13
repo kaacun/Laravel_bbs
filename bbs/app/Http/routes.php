@@ -11,5 +11,7 @@
 |
 */
 
-  Route::get('/', 'ThreadsController@index');
-  Route::controller('threads', 'ThreadsController');
+Route::get('bbs', 'ThreadsController@index');
+Route::get('bbs/create', 'ThreadsController@create');
+Route::get('bbs/show/{id}','ThreadsController@show');
+Route::post('bbs', 'ThreadsController@store');
