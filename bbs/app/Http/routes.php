@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::get('/', 'ThreadsController@index');
 Route::get('bbs', 'ThreadsController@index');
 Route::get('bbs/create', 'ThreadsController@create');
 Route::get('bbs/show/{id}','ThreadsController@show');
