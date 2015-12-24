@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Http\Requests\Comment\StoreRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -48,8 +49,12 @@ class CommentsController extends Controller
              'user' => $request->get('user'),
              'comment' => $request->get('comment'),
              'thread_id' => $request->get('thread_id')
-         ];
-         $this->comments->create($data);
+        ];
+        $this->comments->create($data);
+        DB::table('threads')
+            ->where('id',$request->get('thread_id'))
+            ->increment('comment_count', 1);
+
          return redirect()->back()->with('message', 'コメントを投稿しました。');
     }
 
