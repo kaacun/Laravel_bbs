@@ -3,11 +3,6 @@
 
 <div class="col-xs-8 col-xs-offset-2">
     <h1>新しいスレッドの投稿</h1>
-    @if(Session::has('message'))
-    <div class="bg-info">
-        <p>{{ Session::get('message') }}</p>
-    </div>
-    @endif
 
     @foreach($errors->all() as $message)
     <p class="bg-danger">{{ $message }}</p>

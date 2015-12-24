@@ -47,7 +47,7 @@ class ThreadsController extends Controller
          ];
          $this->threads->create($data);
 
-         return redirect('bbs');
+        return redirect('bbs')->with('message', 'スレッドを投稿しました。');
     }
 
     /**

@@ -2,6 +2,12 @@
 @section('content')
 
 <div class="col-xs-8 col-xs-offset-2">
+    @if(Session::has('message'))
+    <div class="bg-info">
+        <p>{{ Session::get('message') }}</p>
+    </div>
+    @endif
+
     {!! link_to('bbs/create', 'スレッド新規作成', ['class' => 'btn btn-primary']) !!}
 
     @foreach($threads as $thread)
