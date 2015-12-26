@@ -1,0 +1,10 @@
+.chip-info{
+    background-color: #3a87ad;
+    font-weight: bold;
+    margin: 10px;
+}
+.chip-error{
+    background-color: #b94a48;
+    font-weight: bold;
+    margin: 10px;
+}
