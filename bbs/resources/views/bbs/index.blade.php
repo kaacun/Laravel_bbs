@@ -33,4 +33,6 @@
     </tbody>
 </table>
 
+{!! $threads->render() !!}
+
 @stop

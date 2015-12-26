@@ -18,7 +18,7 @@ class ThreadsController extends Controller
 
     public function index()
     {
-        $threads = $this->threads->all();
+        $threads = Thread::paginate(10);
         return view('bbs.index')->with('threads', $threads);
     }
 
