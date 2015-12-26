@@ -14,7 +14,7 @@
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-    <nav class="light-blue lighten-1" role="navigation">
+    <nav class="light-red lighten-1" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" href="/bbs" class="brand-logo">BBS</a>
     </nav>
     <div class="container">
