@@ -1,12 +1,14 @@
 @extends('layouts.app')
 @section('content')
 
-<h4>スレッド一覧</h4>
 @if(Session::has('message'))
-<div class="chip">
-    <p>{{ Session::get('message') }}</p>
+<div class="chip chip-info white-text">
+    {{ Session::get('message') }}
+    <i class="material-icons">close</i>
 </div>
 @endif
+
+<h4>スレッド一覧</h4>
 
 {!! link_to('bbs/create', 'スレッド新規作成', ['class' => 'waves-effect waves-light btn']) !!}
 
