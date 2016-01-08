@@ -18,6 +18,11 @@ class ThreadsController extends Controller
 
     public function index()
     {
+        /*
+         * DIしてるなら書き方統一したほうが良いのでは？
+         * (何か理由があったらすいません)
+         * $threads = $this->threads->paginate(10);
+         */
         $threads = Thread::paginate(10);
         return view('bbs.index')->with('threads', $threads);
     }
@@ -45,6 +50,10 @@ class ThreadsController extends Controller
              'description' => $request->get('description'),
              'user' => $request->get('user')
          ];
+        /*
+         * $data使わなくてもいけるよ
+         * $this->threads->create($request->all());
+         */
          $this->threads->create($data);
 
         return redirect('bbs')->with('message', 'スレッドを投稿しました。');
@@ -58,6 +67,11 @@ class ThreadsController extends Controller
      */
     public function show($id)
     {
+        /*
+         * DIしてるなら書き方統一したほうが良いのでは？
+         * (何か理由があったらすいません)
+         * $thread = $this->threads->findOrFail($id);
+         */
         $thread = Thread::findOrFail($id);
         return view('bbs.show', compact('thread'));
     }

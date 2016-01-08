@@ -27,6 +27,7 @@
     </div>
 </div>
 
+{{--「N+1問題」についてググってみよう --}}
 @foreach($thread->comments as $comment)
 <div class="card-panel">
     投稿者：{{ $comment->user }}
